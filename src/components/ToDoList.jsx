@@ -20,7 +20,7 @@ const ToDoList = (props) => {
       <div className="container">
         <div className="btn-container">
           <button onClick={ToggleModal} className="add-new-btn" >Add New Task</button>
-          <button className="clear-btn">Clear All</button>
+          <button className="clear-btn" onClick={props.ClearAll}>Clear All</button>
         </div>
         <div className="list-container">
           {props.list.map((item) => {

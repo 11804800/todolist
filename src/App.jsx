@@ -35,10 +35,20 @@ function App() {
     });
   }
 
+  function DeleteSingle(index)
+  {
+    console.log(index);
+  }
+
+  function ClearAll()
+  {
+    setList([]);
+  }
+
   return (
     <div className="App">
       <Header />
-      <ToDoList list={list} AddNew={AddNew} />
+      <ToDoList list={list} AddNew={AddNew} ClearAll={ClearAll} DeleteSingle={DeleteSingle}/>
       <Footer />
     </div>
   );
