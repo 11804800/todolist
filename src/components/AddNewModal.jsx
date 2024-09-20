@@ -1,8 +1,8 @@
+import React from "react";
 const AddNewModal = (props) => {
 
   function OnFormSubmit(event) {
     event.preventDefault();
-    console.log(event.target.name.value);
     props.AddNew(event.target.name.value,event.target.description.value);
     form.reset();
     props.ToggleModal();
