@@ -6,6 +6,7 @@ import EditListModal from "./components/EditListModal";
 
 function App() {
   const [open, setOpen] = useState(false);
+  const [EditIndex, setIndex] = useState(-1);
 
   const [list, setList] = useState([
     {
@@ -50,11 +51,22 @@ function App() {
 
   function EditListItem(index) {
     console.log(index);
+    if (index != undefined || index != null) {
+      setIndex(index);
+    }
+    console.log(EditIndex);
+    setOpen(!open);
   }
 
   return (
     <div className="App">
-      {open && <EditListModal />}
+      {open && (
+        <EditListModal
+          item={list.filter((item, idx) => idx === EditIndex)}
+          open={open}
+          setOpen={setOpen}
+        />
+      )}
       <Header />
       <ToDoList
         list={list}

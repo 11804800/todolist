@@ -118,7 +118,7 @@
     box-shadow: none;
 }
 
-.add-new-Modal-container
+.add-new-Modal-container,.edit-Modal-container
 {
     position: absolute;
     top:0;
@@ -131,7 +131,7 @@
     align-items: center;
 }
 
-.add-new-form
+.add-new-form,.edit-form
 {
     background: white;
     width: 40%;
@@ -194,7 +194,7 @@
     font-weight: 600;
 }
 
-.add-btn
+.add-btn ,.edit-btn
 {
     padding: 6px 12px;
     width: fit-content;
