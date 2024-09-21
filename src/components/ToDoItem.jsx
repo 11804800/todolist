@@ -10,7 +10,7 @@ const ToDoItem = (props) => {
           <p>{props.item?.name}</p>
         </div>
         <div className="item-btns">
-          <button>
+          <button onClick={()=>{props.DeleteSingle(props.DeleteSingle(props.index))}}>
             <img
               src="./trash-bin.png"
               width="12"

@@ -37,7 +37,11 @@ function App() {
 
   function DeleteSingle(index)
   {
-    console.log(index);
+    if(index!=undefined || index!=null)
+    {
+      const newList=list.filter((item,idx)=>idx!==index);
+      setList(newList);
+    }
   }
 
   function ClearAll()

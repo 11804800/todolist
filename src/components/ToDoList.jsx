@@ -23,8 +23,8 @@ const ToDoList = (props) => {
           <button className="clear-btn" onClick={props.ClearAll}>Clear All</button>
         </div>
         <div className="list-container">
-          {props.list.map((item) => {
-            return <ToDoItem item={item} key={item.id} />;
+          {props.list.map((item,index) => {
+            return <ToDoItem item={item} key={item.id} DeleteSingle={props.DeleteSingle} index={index} />;
           })}
         </div>
       </div>
