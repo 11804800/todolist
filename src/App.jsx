@@ -7,27 +7,7 @@ import EditListModal from "./components/EditListModal";
 function App() {
   const [open, setOpen] = useState(false);
   const [EditIndex, setIndex] = useState(-1);
-
-  const [list, setList] = useState([
-    {
-      id: 1,
-      name: "Hugging",
-      description: "I am gonna hug you some day",
-      completed: false,
-    },
-    {
-      id: 2,
-      name: "Kissing",
-      description: "I am gonna kiss you some day",
-      completed: true,
-    },
-    {
-      id: 3,
-      name: "Love",
-      description: "You Gonna love me some day",
-      completed: false,
-    },
-  ]);
+  const [list, setList] = useState([]);
 
   function AddNew(name, description) {
     list.push({
@@ -57,7 +37,18 @@ function App() {
   }
 
   function SubmitEditForm(name, description, id, completed) {
+
     list[EditIndex] = {
+      name: name,
+      description: description,
+      id: id,
+      completed: completed,
+    };
+
+  }
+
+  function SetChecked(name, description, id, completed, index) {
+    list[index] = {
       name: name,
       description: description,
       id: id,
@@ -73,6 +64,7 @@ function App() {
           open={open}
           setOpen={setOpen}
           SubmitEditForm={SubmitEditForm}
+          SetChecked={SetChecked}
         />
       )}
       <Header />
@@ -84,6 +76,7 @@ function App() {
         EditListItem={EditListItem}
         setOpen={setOpen}
         open={open}
+        SetChecked={SetChecked}
       />
       <Footer />
     </div>
