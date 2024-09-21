@@ -24,7 +24,7 @@ const ToDoList = (props) => {
         </div>
         <div className="list-container">
           {props.list.map((item,index) => {
-            return <ToDoItem item={item} key={item.id} DeleteSingle={props.DeleteSingle} index={index} />;
+            return <ToDoItem item={item} key={item.id} DeleteSingle={props.DeleteSingle} index={index} EditListItem={props.EditListItem} />;
           })}
         </div>
       </div>

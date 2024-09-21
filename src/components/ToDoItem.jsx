@@ -18,7 +18,7 @@ const ToDoItem = (props) => {
               alt="delete-btn"
             />
           </button>
-          <button>
+          <button onClick={()=>props.EditListItem(props.index)}>
             <img src="./pencil.png" width="12" height="12" alt="edit-btn" />
           </button>
           <button

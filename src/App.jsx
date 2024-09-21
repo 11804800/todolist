@@ -1,58 +1,70 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import ToDoItem from "./components/ToDoItem";
 import ToDoList from "./components/ToDoList";
+import EditListModal from "./components/EditListModal";
 
 function App() {
+  const [open, setOpen] = useState(false);
+
   const [list, setList] = useState([
     {
       id: 1,
       name: "Hugging",
       description: "I am gonna hug you some day",
-      completed:false
+      completed: false,
     },
     {
       id: 2,
       name: "Kissing",
       description: "I am gonna kiss you some day",
-      completed:true
+      completed: true,
     },
     {
       id: 3,
       name: "Love",
       description: "You Gonna love me some day",
-      completed:false
-    }
+      completed: false,
+    },
   ]);
 
-  function AddNew(name,description) {
+  function AddNew(name, description) {
     list.push({
-      name:name,
-      id:Math.random(),
-      description:description,
-      completed:false
+      name: name,
+      id: Math.random(),
+      description: description,
+      completed: false,
     });
   }
 
-  function DeleteSingle(index)
-  {
-    if(index!=undefined || index!=null)
-    {
-      const newList=list.filter((item,idx)=>idx!==index);
+  function DeleteSingle(index) {
+    if (index != undefined || index != null) {
+      const newList = list.filter((item, idx) => idx !== index);
       setList(newList);
     }
   }
 
-  function ClearAll()
-  {
+  function ClearAll() {
     setList([]);
+  }
+
+  function EditListItem(index) {
+    console.log(index);
   }
 
   return (
     <div className="App">
+      {open && <EditListModal />}
       <Header />
-      <ToDoList list={list} AddNew={AddNew} ClearAll={ClearAll} DeleteSingle={DeleteSingle}/>
+      <ToDoList
+        list={list}
+        AddNew={AddNew}
+        ClearAll={ClearAll}
+        DeleteSingle={DeleteSingle}
+        EditListItem={EditListItem}
+        setOpen={setOpen}
+        open={open}
+      />
       <Footer />
     </div>
   );
