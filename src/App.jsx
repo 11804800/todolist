@@ -50,12 +50,19 @@ function App() {
   }
 
   function EditListItem(index) {
-    console.log(index);
     if (index != undefined || index != null) {
       setIndex(index);
     }
-    console.log(EditIndex);
     setOpen(!open);
+  }
+
+  function SubmitEditForm(name, description, id, completed) {
+    list[EditIndex] = {
+      name: name,
+      description: description,
+      id: id,
+      completed: completed,
+    };
   }
 
   return (
@@ -65,6 +72,7 @@ function App() {
           item={list.filter((item, idx) => idx === EditIndex)}
           open={open}
           setOpen={setOpen}
+          SubmitEditForm={SubmitEditForm}
         />
       )}
       <Header />
