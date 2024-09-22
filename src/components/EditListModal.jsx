@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 const EditListModal = (props) => {
+
+  //nested state for name and description
   const [state, Setstate] = useState({
     name: props?.item[0]?.name,
     description: props?.item[0]?.description,
   });
 
+  //function:for changing the values
   function SetValue(e) {
     Setstate((prev) => ({
       ...prev,
@@ -12,6 +15,7 @@ const EditListModal = (props) => {
     }));
   }
 
+  //form submit function to edit the task
   function SubmitForm() {
     props.SubmitEditForm(
       state.name,
