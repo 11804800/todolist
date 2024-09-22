@@ -22,7 +22,7 @@ Install my-project with npm
 Clone the project
 
 ```bash
-  git clone https://github.com/11804800/todolist
+  git clone https://github.com/11804800/todolist.git
 ```
 
 Go to the project directory
